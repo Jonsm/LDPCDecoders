@@ -9,8 +9,8 @@
 #define vide_decoder_hpp
 
 #include "HGP_code.hpp"
-#include <Eigen/Dense>
-#include "dense_z2_solver.hpp"
+#include <Eigen/Sparse>
+#include "sparse_z2_solver.hpp"
 
 class vide_decoder : public HGP_code {
 public:
@@ -30,10 +30,12 @@ private:
     std::vector<int> set_L;
     std::vector<int> set_R;
     
-    Eigen::VectorXi restr_correction;
-    Eigen::MatrixXi restr_bit_nbhd;
-    dense_z2_solver rspace_check;
-    dense_z2_solver correctable_check;
+//    Eigen::VectorXi restr_correction;
+//    Eigen::MatrixXi restr_bit_nbhd;
+//    dense_z2_solver rspace_check;
+//    dense_z2_solver correctable_check;
+    sparse_z2_solver rspace_check;
+    sparse_z2_solver correctable_check;
     
     void reset();
     void add_to_R(int chk, boost::multi_array<int,2>& chk_nbhd);

@@ -5,6 +5,8 @@
 //  Created by Jon on 6/1/22.
 //
 
+//NOT BEING USED
+
 #include "int_z2.hpp"
 
 std::ostream& operator<<(std::ostream& os, const int_z2& m) {

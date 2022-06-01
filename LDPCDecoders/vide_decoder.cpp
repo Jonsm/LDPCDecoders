@@ -21,11 +21,6 @@ h_cc(h_cc)
     to_visit.resize(n_q);
     set_L.resize(n_q);
     set_R.resize(n_chk_q);
-//    cout << n_q << "," << n_chk_q << endl;
-    rspace_check = dense_z2_solver(n_chk_q, n_q);
-    correctable_check = dense_z2_solver(n_q,n_chk_q);
-    restr_bit_nbhd.resize(n_chk_q, n_q);
-    
 }
 
 void vide_decoder::reset() {
@@ -92,19 +87,7 @@ bool vide_decoder::decode_helper(boost::multi_array<int, 2> &bit_nbhd, boost::mu
 }
 
 bool vide_decoder::L_correctable(boost::multi_array<int, 2> &bit_nbhd, std::vector<int> &syndrome) {
-    restr_bit_nbhd.topLeftCorner(n_chk_q, n_L) = MatrixXi::Constant(n_chk_q, n_L, 0);
-    
-    for (int i = 0; i < n_L; i++) {
-        int ind = L[i];
-        for (int j = 0; j < dv_q[ind]; j++) {
-            int chk = bit_nbhd[ind][j];
-            restr_bit_nbhd(i,chk) = 1;
-        }
-    }
-    
-    correctable_check.reset(restr_bit_nbhd.topLeftCorner(n_chk_q,n_L));
-    
-//    return correctable_check.solve(restr_correction, syndrome);
+    //implement
     return false;
 }
 
